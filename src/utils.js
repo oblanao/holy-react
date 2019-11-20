@@ -30,7 +30,6 @@ module.exports = {
       backgroundImage = backgrounds[pos];
       backgroundPosition = "center"
     }
-    console.log(`Setting\nbackgroundImage=${backgroundImage}\nbackgroundPosition=${backgroundPosition}`)
     document.body.style.backgroundImage = `url("${backgroundImage}")`;
     document.body.style.backgroundPosition = backgroundPosition;
   }

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import charming from 'charming';
-import anime from 'animejs';
+import anime from 'animejs-hooks';
 
 import Blob from './Blob';
 import { changeBackground } from '../utils';
@@ -97,6 +97,7 @@ export default function Scene() {
     };
 
     const close = () => {
+      console.log(`current = ${current}`)
       if (!isOpen) return;
       isOpen = false;
       const contentInner = DOM.contentInner[current];
