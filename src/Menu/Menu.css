@@ -9,6 +9,7 @@
 }
 
 .menu__item {
+  cursor: pointer;
   color: var(--color-menu);
   line-height: 1.25;
   text-transform: lowercase;

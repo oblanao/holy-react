@@ -4,7 +4,7 @@ import Content from './Content';
 
 function App() {
   React.useEffect(() => {
-
+    document.body.style.backgroundImage = `url("images/bg.jpg")`
   })
   return (
     <React.Fragment>
