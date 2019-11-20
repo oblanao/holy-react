@@ -21,6 +21,10 @@
   align-content: end;
 }
 
+.content__inner span {
+  opacity: 0;
+}
+
 .js .content__inner {
   opacity: 0;
   transition: opacity 0.3s;

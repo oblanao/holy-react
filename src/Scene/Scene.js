@@ -75,10 +75,11 @@ export default function Scene() {
         changeBackground(pos)
         const currrentBlobDomEl = blobDomElements[pos];
         anime({
+          easing: 'linear',
           targets: currrentBlobDomEl,
-          duration: 5500,
+          duration: 1500,
           opacity: [1, 0.7],
-          offset: 2000,
+          offset: 1000,
         })
         DOM.content.style.pointerEvents = 'auto';
 
@@ -115,6 +116,8 @@ export default function Scene() {
       });
 
       blobs[current].collapse().then(() => {
+        blobDomElements[current].setAttribute('style', 'opacity: 1')
+        console.log(blobDomElements[current].style)
         current = -1;
 
         anime({

@@ -43,7 +43,6 @@ export default class Blob {
   expand() {
     return new Promise((resolve, reject) => {
       let halfway = false;
-      console.log(this)
       anime({
         targets: this.layers,
         duration: 1000,
@@ -75,7 +74,7 @@ export default class Blob {
           }
         }
       });
-      this.DOM.el.style.opacity = 1;
+      // this.DOM.el.style.opacity = 1;
     });
   }
   hide() {
