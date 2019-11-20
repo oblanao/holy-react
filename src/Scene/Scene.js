@@ -78,7 +78,7 @@ export default function Scene() {
           targets: currrentBlobDomEl,
           duration: 5500,
           opacity: [1, 0.7],
-          offset: 1000,
+          offset: 2000,
         })
         DOM.content.style.pointerEvents = 'auto';
 

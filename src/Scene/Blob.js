@@ -1,4 +1,4 @@
-import anime from 'animejs';
+import anime from 'animejs-hooks';
 
 import { debounce } from '../utils';
 
@@ -30,7 +30,7 @@ export default class Blob {
       targets: this.layers,
       duration: 1800,
       delay: (t, i) => i * 120,
-      // easing: [0.2, 1, 0.1, 1],
+      easing: [0.2, 1, 0.1, 1],
       scale: [0.2, 1],
       opacity: {
         value: [0, 1],
@@ -47,7 +47,7 @@ export default class Blob {
         targets: this.layers,
         duration: 1000,
         delay: (t, i) => i * 50 + 200,
-        // easing: [0.8, 0, 0.1, 0],
+        easing: [0.8, 0, 0.1, 0],
         d: (t) => t.getAttribute('pathdata'),
         update: function (anim) {
           if (anim.progress > 75 && !halfway) {
@@ -65,7 +65,7 @@ export default class Blob {
         targets: this.layers,
         duration: 800,
         delay: (t, i, total) => (total - i - 1) * 50 + 400,
-        // easing: [0.2, 1, 0.1, 1],
+        easing: [0.2, 1, 0.1, 1],
         d: (t, i) => this.descriptions[i],
         update: function (anim) {
           if (anim.progress > 75 && !halfway) {
