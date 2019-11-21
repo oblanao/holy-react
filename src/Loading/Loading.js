@@ -1,6 +1,3 @@
-import React, { useEffect } from 'react';
-import anime from 'animejs-hooks';
-
 import './Loading.css';
 
 export default function Loading(props) {
