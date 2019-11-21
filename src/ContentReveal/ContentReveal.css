@@ -9,16 +9,21 @@
 }
 
 .content__inner {
+  height: calc(100vh - 75px);
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
   height: 50%;
-  display: grid;
-  align-items: center;
-  justify-content: center;
-  justify-items: center;
-  align-content: end;
+  /* display: grid; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  /* justify-items: center; */
+  /* align-content: end; */
 }
 
 .content__inner span {
