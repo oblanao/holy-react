@@ -7,6 +7,7 @@ function App() {
     document.body.style.backgroundImage = `url("images/bg.jpg")`
   })
   return (
+    // Important to leave React.Fragment as is, for correct z-Index of Blob and Header
     <React.Fragment>
       <Header />
       <Content />
