@@ -51,6 +51,7 @@ export default class Blob {
         d: (t) => t.getAttribute('pathdata'),
         update: function (anim) {
           if (anim.progress > 75 && !halfway) {
+            document.getElementById('main-menu').style.display = "none"
             halfway = true;
             resolve();
           }
@@ -69,6 +70,7 @@ export default class Blob {
         d: (t, i) => this.descriptions[i],
         update: function (anim) {
           if (anim.progress > 75 && !halfway) {
+            document.getElementById('main-menu').style.display = "flex"
             halfway = true;
             resolve();
           }
