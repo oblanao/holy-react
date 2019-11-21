@@ -3,9 +3,10 @@
   z-index: 1000;
   display: flex;
   flex-direction: column;
-  margin: 150px 0 0 25vw;
+  margin: 10vh 0 0 25vw;
   font-size: 4vw;
   align-items: flex-start;
+  align-self: center;
 }
 
 .menu__item {
@@ -81,6 +82,7 @@
   .menu {
     font-size: 2.75em;
     margin: 0 auto;
+    margin-top: 15vh;
     align-items: center;
   }
 }
