@@ -1,5 +1,5 @@
 LOW Replace close button with spinning vinyl
 MEDIUM Add pulsate effect to blob on menu item hover
-HIGH Split content-reveal to pages
 HIGH Instagram Feed Live
 MEDIUM Delay blob collapse to allow full opacity on blob beforehand
+MEDIUM Change menu__items to buttons
