@@ -1,1 +1,9 @@
-
+.content {
+  position: relative;
+  width: 100vw;
+  height: calc(100vh - 75px);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+}

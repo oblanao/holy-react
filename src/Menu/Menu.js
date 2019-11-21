@@ -4,7 +4,7 @@ import './Menu.css';
 
 export default function Menu() {
   return (
-    <nav className="menu">
+    <nav className="menu" id="main-menu">
       <a className="menu__item">About Me</a>
       <a className="menu__item">Discography</a>
       <a className="menu__item">Philosophy</a>

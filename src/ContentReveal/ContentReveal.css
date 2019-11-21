@@ -1,10 +1,10 @@
 .content--reveal {
   position: absolute;
   z-index: 1001;
-  top: 25%;
+  /* top: 75px; */
   left: 0;
   width: 100%;
-  height: 100vh;
+  /* height: calc(100vh - 75px); */
   pointer-events: none;
 }
 
