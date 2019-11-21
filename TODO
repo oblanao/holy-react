@@ -3,3 +3,4 @@ MEDIUM Add pulsate effect to blob on menu item hover
 HIGH Instagram Feed Live
 MEDIUM Delay blob collapse to allow full opacity on blob beforehand
 MEDIUM Change menu__items to buttons
+HIGH Fix styling on close-button, especially positioning
