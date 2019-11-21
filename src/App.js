@@ -4,8 +4,6 @@ import Header from './Header';
 import Content from './Content';
 import Loading from './Loading';
 
-import anime from 'animejs-hooks';
-
 function App() {
   const [loading, setLoading] = React.useState(true)
   const onLoad = () => {
@@ -18,7 +16,7 @@ function App() {
     loading ?
       <React.Fragment>
         <img src="images/bg.jpg" style={{ display: 'none' }} onLoad={onLoad} alt="haules" />
-        <Loading onLoad={onLoad} />
+        <Loading />
       </React.Fragment>
       :
       <React.Fragment>
