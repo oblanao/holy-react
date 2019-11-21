@@ -14,23 +14,33 @@ module.exports = {
     };
   },
   changeBackground: (pos) => {
-    console.log(`inside`)
-    const backgrounds = [
-      'images/aboutme.jpg',
-      'images/discography.jpg',
-      'images/philosophy.jpg',
-      'images/gallery.jpg',
-      'images/aboutme5.jpg',
-      'images/aboutme6.jpg',
-      'images/bg.jpg'
+    // Very much improved version
+    const bgClasses = [
+      'bg-aboutme',
+      'bg-discography',
+      'bg-philosophy',
+      'bg-gallery',
+      'bg-news',
+      'bg-contact',
+      'bg'
     ]
-    let backgroundImage = backgrounds[backgrounds.length - 1];
+    let currentBgClass = bgClasses[bgClasses.length - 1];
     let backgroundPosition = "";
-    if (backgrounds[pos]) {
-      backgroundImage = backgrounds[pos];
-      backgroundPosition = "center"
+    if (bgClasses[pos]) {
+      currentBgClass = bgClasses[pos];
+      backgroundPosition = "center";
     }
-    document.body.style.backgroundImage = `url("${backgroundImage}")`;
+    function clearBackground() {
+      document.body.classList.remove('bg-aboutme');
+      document.body.classList.remove('bg-discography');
+      document.body.classList.remove('bg-philosophy');
+      document.body.classList.remove('bg-gallery');
+      document.body.classList.remove('bg-news');
+      document.body.classList.remove('bg-contact');
+      document.body.classList.remove('bg');
+    }
+    clearBackground();
     document.body.style.backgroundPosition = backgroundPosition;
+    document.body.classList.add(currentBgClass);
   }
 }

@@ -124,3 +124,23 @@ body {
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Opera and Firefox */
 }
+
+.bg-aboutme {
+  background-image: url("/images/aboutme.jpg") !important;
+}
+
+.bg-discography {
+  background-image: url("/images/discography.jpg") !important;
+}
+.bg-philosophy {
+  background-image: url("/images/philosophy.jpg") !important;
+}
+.bg-gallery {
+  background-image: url("/images/gallery.jpg") !important;
+}
+.bg-news {
+  background-image: url("/images/news.jpg") !important;
+}
+.bg-contact {
+  background-image: url("/images/contact.jpg") !important;
+}

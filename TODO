@@ -5,4 +5,4 @@ MEDIUM Delay blob collapse to allow full opacity on blob beforehand
 MEDIUM Change menu__items to buttons
 HIGH Fix styling on close-button, especially positioning
 HIGH Add Bubbles from JGarnier as news
-HIGH backgrounds as absolute position images and only switch class
+HIGH Lazy load rest of images
