@@ -70,7 +70,8 @@
 
 .menu__item--showDeco:hover::before {
   transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
-  transform: scale3d(1.2, 1, 1);
+  /* Correct scale3d should be 1.25 to avoid black line endings*/
+  transform: scale3d(1.25, 1, 1);
 }
 
 .menu__item span {
