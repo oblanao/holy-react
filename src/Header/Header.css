@@ -5,8 +5,7 @@
   max-width: none;
   min-height: 0;
   height: 75px;
-  padding: 0.5em;
-  padding-left: 2em;
+  padding: 1.5em;
   pointer-events: none;
   justify-content: flex-start;
 }
