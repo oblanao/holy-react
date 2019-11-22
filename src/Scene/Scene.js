@@ -99,7 +99,6 @@ export default function Scene() {
     };
 
     const close = () => {
-      console.log(`current = ${current}`)
       if (!isOpen) return;
       isOpen = false;
       const contentInner = DOM.contentInner[current];
@@ -119,9 +118,7 @@ export default function Scene() {
       blobs[current].collapse().then(() => {
         // blobDomElements[current].setAttribute('style', 'opacity: 1')
         blobDomElements[current].classList.remove('translucent-blob')
-        console.log(blobDomElements[current].style)
         current = -1;
-
         anime({
           targets: DOM.links.map((link) => link.querySelectorAll('span')),
           duration: 200,
