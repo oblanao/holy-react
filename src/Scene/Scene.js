@@ -74,13 +74,14 @@ export default function Scene() {
       currentBlob.expand().then(() => {
         changeBackground(pos)
         const currrentBlobDomEl = blobDomElements[pos];
-        anime({
-          easing: 'linear',
-          targets: currrentBlobDomEl,
-          duration: 1500,
-          opacity: [1, 0.7],
-          offset: 1000,
-        })
+        setTimeout(() => currrentBlobDomEl.classList.add('translucent-blob'), 1000);
+        // anime({
+        //   easing: 'linear',
+        //   targets: currrentBlobDomEl,
+        //   duration: 1500,
+        //   opacity: [1, 0.7],
+        //   offset: 1000,
+        // })
         DOM.content.style.pointerEvents = 'auto';
 
         const contentInner = DOM.contentInner[pos];
@@ -116,7 +117,8 @@ export default function Scene() {
       });
 
       blobs[current].collapse().then(() => {
-        blobDomElements[current].setAttribute('style', 'opacity: 1')
+        // blobDomElements[current].setAttribute('style', 'opacity: 1')
+        blobDomElements[current].classList.remove('translucent-blob')
         console.log(blobDomElements[current].style)
         current = -1;
 
