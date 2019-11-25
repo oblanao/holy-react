@@ -5,3 +5,7 @@ iframe {
 iframe:hover {
   height: 380px;
 }
+
+iframe:hover .content__title>span {
+  color: red;
+}
