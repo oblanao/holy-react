@@ -2,6 +2,9 @@
   list-style-type: none;
   padding: 15px;
 }
+li:not(:last-child) {
+  margin-bottom: 15px;
+}
 
 .sketchy {
   padding: 1rem 2rem;

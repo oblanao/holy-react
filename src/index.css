@@ -4,7 +4,7 @@
 
 #root {
   min-height: 100vh;
-  overflow: hidden;
+  /* overflow: hidden; */
   display: flex;
   flex-direction: column;
 }
@@ -112,7 +112,7 @@ body {
   background-size: cover;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .noselect {
@@ -144,4 +144,8 @@ body {
 }
 .bg-contact {
   background-image: url("/images/contact.jpg") !important;
+}
+
+.flex {
+  display: flex;
 }

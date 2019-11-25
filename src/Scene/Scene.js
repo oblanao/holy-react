@@ -91,6 +91,7 @@ export default function Scene() {
         DOM.content.style.pointerEvents = 'auto';
 
         const contentInner = DOM.contentInner[pos];
+        contentInner.classList.add('flex');
         contentInner.style.opacity = 1;
         anime({
           targets: [contentInner.querySelectorAll('.content__title > span'), contentInner.querySelectorAll('.content__subtitle > span'), DOM.ctrlBack],
@@ -124,6 +125,7 @@ export default function Scene() {
         complete: () => {
           changeBackground()
           contentInner.style.opacity = 0;
+          contentInner.classList.remove('flex');
           DOM.content.style.pointerEvents = 'none';
         }
       });
