@@ -23,10 +23,16 @@ export default function Scene() {
     });
 
     DOM.content = document.querySelector('.content--reveal');
+    console.log()
     DOM.contentInner = Array.from(DOM.content.querySelectorAll('.content__inner'), (el) => {
-      charming(el);
+
+      // charming(el);
+
       return el;
     });
+    Array.from(DOM.content.querySelectorAll('.content__title')).map((el) => charming(el));
+    Array.from(DOM.content.querySelectorAll('.content__subtitle')).map((el) => charming(el));
+
     DOM.ctrlBack = DOM.content.querySelector('.content__close');
     DOM.links = Array.from(document.querySelectorAll('.menu > .menu__item'));
 
@@ -93,6 +99,13 @@ export default function Scene() {
           easing: 'easeInOutQuad',
           opacity: [0, 1]
         });
+        anime({
+          targets: '.content__rest',
+          duration: 200,
+          delay: anime.random(300,900),
+          easing: 'easeInOutQuad',
+          opacity: [0, 1]
+        })
       });
 
       blobs.filter(el => el !== currentBlob).forEach(blob => blob.hide());
@@ -114,6 +127,13 @@ export default function Scene() {
           DOM.content.style.pointerEvents = 'none';
         }
       });
+      anime({
+        targets: '.content__rest',
+        duration: 200,
+        delay: anime.random(150,350),
+        easing: 'easeInOutQuad',
+        opacity: [1, 0]
+      })
 
       blobs[current].collapse().then(() => {
         // blobDomElements[current].setAttribute('style', 'opacity: 1')
