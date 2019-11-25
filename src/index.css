@@ -130,7 +130,8 @@ body {
 }
 
 .bg-discography {
-  background-image: url("/images/discography.jpg") !important;
+  background: #090909 !important;
+  /* background-image: url("/images/discographsy.jpg") !important; */
 }
 .bg-philosophy {
   background-image: url("/images/philosophy.jpg") !important;

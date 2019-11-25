@@ -1,3 +1,5 @@
 .content__rest {
   opacity: 0;
+  z-index: 100000;
+  margin-top: 20px;
 }
