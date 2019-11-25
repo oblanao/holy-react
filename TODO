@@ -1,9 +1,5 @@
 LOW Replace close button with spinning vinyl
-MEDIUM Add pulsate effect to blob on menu item hover
 HIGH Instagram Feed Live
-MEDIUM Delay blob collapse to allow full opacity on blob beforehand
 MEDIUM Change menu__items to buttons
 HIGH Fix styling on close-button, especially positioning
 HIGH Add Bubbles from JGarnier as news
-HIGH Lazy load rest of images
-HIGH Fix glitch of menu__items appearing before their animation starts
