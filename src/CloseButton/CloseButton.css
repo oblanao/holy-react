@@ -1,6 +1,6 @@
 .content__close {
   position: absolute;
-  top: 55%;
+  bottom: 5%;
   left: 50%;
   background: none;
   color: var(--color-link);
