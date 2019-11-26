@@ -5,19 +5,6 @@ import Content from './Content';
 import Loading from './Loading';
 
 function App() {
-  const handleClick = () => {
-    var docWidth = document.documentElement.offsetWidth;
-    var docHeight = document.documentElement.offsetHeight;
-    console.log(docHeight);
-    [].forEach.call(
-      document.querySelectorAll('*'),
-      function (el) {
-        if (el.getBoundingClientRect().top + el.offsetHeight > docHeight) {
-          console.log(el);
-        }
-      }
-    );
-  }
   const [loading, setLoading] = React.useState(true)
   const onLoad = () => {
     // replace with large_bg for testing purposes. (2 occurences)
