@@ -137,7 +137,8 @@ body {
   background-image: url("/images/philosophy.jpg") !important;
 }
 .bg-gallery {
-  background-image: url("/images/gallery.jpg") !important;
+  background: #090909 !important;
+  /* background-image: url("/images/gallery.jpg") !important; */
 }
 .bg-news {
   background-image: url("/images/news.jpg") !important;
