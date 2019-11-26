@@ -12,13 +12,13 @@ export default function Discography() {
       <div className="content__rest">
         <ul className="songs-list">
           <li className="sketchy">
-            <iframe src="https://open.spotify.com/embed/track/6p6qMdoReQ6tfBgidP4S4x" width="300" height="78" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            <iframe title="firstSong" src="https://open.spotify.com/embed/track/6p6qMdoReQ6tfBgidP4S4x" width="300" height="78" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
           </li>
           <li className="sketchy">
-            <iframe src="https://open.spotify.com/embed/track/6p6qMdoReQ6tfBgidP4S4x" width="300" height="78" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            <iframe title="secondSong" src="https://open.spotify.com/embed/track/6p6qMdoReQ6tfBgidP4S4x" width="300" height="78" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
           </li>
           <li className="sketchy">
-            <iframe src="https://open.spotify.com/embed/track/6p6qMdoReQ6tfBgidP4S4x" width="300" height="78" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            <iframe title="thirdSong" src="https://open.spotify.com/embed/track/6p6qMdoReQ6tfBgidP4S4x" width="300" height="78" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
           </li>
         </ul>
       </div>
