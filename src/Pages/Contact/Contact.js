@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactSVG from 'react-svg';
 
 export default function Contact() {
   return (
@@ -8,7 +9,12 @@ export default function Contact() {
         Bookings &amp; Info
           </h3>
       <p>bookings@holy-molly.com</p>
-
+      <div className="content__rest">
+        <ReactSVG
+          evalScripts="always"
+          src="images/icons/instagram.svg"
+        />
+      </div>
     </div >
   )
 }
