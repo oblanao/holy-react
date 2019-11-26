@@ -54,7 +54,7 @@ export default function Scene() {
 
       link.addEventListener('click', (ev) => {
         ev.preventDefault();
-        if (pos !== 3) open(pos);
+        open(pos);
       });
     });
 
@@ -103,7 +103,7 @@ export default function Scene() {
         anime({
           targets: '.content__rest',
           duration: 200,
-          delay: anime.random(300,900),
+          delay: anime.random(300, 900),
           easing: 'easeInOutQuad',
           opacity: [0, 1]
         })
@@ -132,7 +132,7 @@ export default function Scene() {
       anime({
         targets: '.content__rest',
         duration: 200,
-        delay: anime.random(150,350),
+        delay: anime.random(150, 350),
         easing: 'easeInOutQuad',
         opacity: [1, 0]
       })
