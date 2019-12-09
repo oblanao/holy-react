@@ -3,7 +3,7 @@ import charming from 'charming';
 import anime from 'animejs-hooks';
 
 import Blob from './Blob';
-import { changeBackground } from '../utils';
+import { openFunctions, utils } from '../utils';
 import './Scene.css';
 
 export default function Scene() {
@@ -62,6 +62,7 @@ export default function Scene() {
 
     let current, isOpen = false;
     const open = (pos) => {
+      openFunctions[pos]();
       isOpen = true;
       anime({
         targets: DOM.links.map((link) => link.querySelectorAll('span')),
@@ -78,7 +79,7 @@ export default function Scene() {
       current = pos;
       const currentBlob = blobs[current];
       currentBlob.expand().then(() => {
-        changeBackground(pos)
+        utils.changeBackground(pos)
         const currrentBlobDomEl = blobDomElements[pos];
         setTimeout(() => currrentBlobDomEl.classList.add('translucent-blob'), 1000);
         // anime({
@@ -123,7 +124,7 @@ export default function Scene() {
         easing: 'easeInOutQuad',
         opacity: 0,
         complete: () => {
-          changeBackground()
+          utils.changeBackground()
           contentInner.style.opacity = 0;
           contentInner.classList.remove('flex');
           DOM.content.style.pointerEvents = 'none';

@@ -1,6 +1,6 @@
 import anime from 'animejs-hooks';
 
-import { debounce } from '../utils';
+import { debounce } from '../utils/utils';
 
 export default class Blob {
   constructor(el, options) {

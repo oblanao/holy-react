@@ -1,4 +1,5 @@
 module.exports = {
+  log: (what) => console.log(what),
   debounce: (func, wait, immediate) => {
     var timeout;
     return function () {
