@@ -33,7 +33,7 @@
 
 .menu__item::before {
   content: "";
-  width: 100px;
+  width: 60%;
   height: 35px;
   background: linear-gradient(45deg, #f19872, #e86c9a);
   position: absolute;
