@@ -1,87 +1,97 @@
-import React, { useEffect } from 'react';
-import charming from 'charming';
-import anime from 'animejs-hooks';
+import React, { useEffect } from "react";
+import charming from "charming";
+import anime from "animejs-hooks";
 
-import Blob from './Blob';
-import { openFunctions, utils } from '../utils';
-import './Scene.css';
+import Blob from "./Blob";
+import { openFunctions, utils } from "../utils";
+import "./Scene.css";
 
 export default function Scene() {
   useEffect(() => {
-
     window.Blob = Blob;
     const DOM = {};
     let blobs = [];
     let blobDomElements = [];
 
-    DOM.svg = document.querySelector('svg.scene');
-    Array.from(DOM.svg.querySelectorAll('g')).forEach((el) => {
+    DOM.svg = document.querySelector("svg.scene");
+    Array.from(DOM.svg.querySelectorAll("g")).forEach((el) => {
       blobDomElements.push(el);
       const blob = new Blob(el);
       blobs.push(blob);
       blob.intro();
     });
 
-    DOM.content = document.querySelector('.content--reveal');
-    console.log()
-    DOM.contentInner = Array.from(DOM.content.querySelectorAll('.content__inner'), (el) => {
+    DOM.content = document.querySelector(".content--reveal");
+    console.log();
+    DOM.contentInner = Array.from(
+      DOM.content.querySelectorAll(".content__inner"),
+      (el) => {
+        // charming(el);
 
-      // charming(el);
+        return el;
+      }
+    );
+    Array.from(DOM.content.querySelectorAll(".content__title")).map((el) =>
+      charming(el)
+    );
+    Array.from(DOM.content.querySelectorAll(".content__subtitle")).map((el) =>
+      charming(el)
+    );
 
-      return el;
-    });
-    Array.from(DOM.content.querySelectorAll('.content__title')).map((el) => charming(el));
-    Array.from(DOM.content.querySelectorAll('.content__subtitle')).map((el) => charming(el));
-
-    DOM.ctrlBack = DOM.content.querySelector('.content__close');
-    DOM.links = Array.from(document.querySelectorAll('.menu > .menu__item'));
+    DOM.ctrlBack = DOM.content.querySelector(".content__close");
+    DOM.links = Array.from(document.querySelectorAll(".menu > .menu__item"));
 
     DOM.links.forEach((link, pos) => {
-      link.style.pointerEvents = 'none';
+      link.style.pointerEvents = "none";
       charming(link);
 
       anime({
-        targets: link.querySelectorAll('span'),
+        targets: link.querySelectorAll("span"),
         duration: 800,
         delay: (t, i) => anime.random(0, 600) + 500,
-        easing: 'easeInOutQuad',
+        easing: "easeInOutQuad",
         opacity: [0, 1],
         complete: () => {
-          link.style.pointerEvents = 'auto';
-          link.classList.add('menu__item--showDeco');
-        }
+          link.style.pointerEvents = "auto";
+          link.classList.add("menu__item--showDeco");
+        },
       });
 
-      link.addEventListener('click', (ev) => {
+      link.addEventListener("click", (ev) => {
         ev.preventDefault();
         open(pos);
       });
     });
 
-    DOM.ctrlBack.addEventListener('click', () => close());
+    DOM.ctrlBack.addEventListener("click", () => close());
 
-    let current, isOpen = false;
+    let current,
+      isOpen = false;
     const open = (pos) => {
       openFunctions[pos]();
       isOpen = true;
       anime({
-        targets: DOM.links.map((link) => link.querySelectorAll('span')),
+        targets: DOM.links.map((link) => link.querySelectorAll("span")),
         delay: (t, i) => anime.random(0, 300),
         duration: 200,
-        easing: 'easeInOutQuad',
+        easing: "easeInOutQuad",
         opacity: 0,
-        begin: () => DOM.links.forEach(link => {
-          link.style.pointerEvents = 'none';
-          link.classList.remove('menu__item--showDeco');
-        })
+        begin: () =>
+          DOM.links.forEach((link) => {
+            link.style.pointerEvents = "none";
+            link.classList.remove("menu__item--showDeco");
+          }),
       });
 
       current = pos;
       const currentBlob = blobs[current];
       currentBlob.expand().then(() => {
-        utils.changeBackground(pos)
+        utils.changeBackground(pos);
         const currrentBlobDomEl = blobDomElements[pos];
-        setTimeout(() => currrentBlobDomEl.classList.add('translucent-blob'), 1000);
+        setTimeout(
+          () => currrentBlobDomEl.classList.add("translucent-blob"),
+          1000
+        );
         // anime({
         //   easing: 'linear',
         //   targets: currrentBlobDomEl,
@@ -89,28 +99,32 @@ export default function Scene() {
         //   opacity: [1, 0.7],
         //   offset: 1000,
         // })
-        DOM.content.style.pointerEvents = 'auto';
+        DOM.content.style.pointerEvents = "auto";
 
         const contentInner = DOM.contentInner[pos];
-        contentInner.classList.add('flex');
+        contentInner.classList.add("flex");
         contentInner.style.opacity = 1;
         anime({
-          targets: [contentInner.querySelectorAll('.content__title > span'), contentInner.querySelectorAll('.content__subtitle > span'), DOM.ctrlBack],
+          targets: [
+            contentInner.querySelectorAll(".content__title > span"),
+            contentInner.querySelectorAll(".content__subtitle > span"),
+            DOM.ctrlBack,
+          ],
           duration: 200,
           delay: (t, i) => anime.random(0, 600),
-          easing: 'easeInOutQuad',
-          opacity: [0, 1]
+          easing: "easeInOutQuad",
+          opacity: [0, 1],
         });
         anime({
-          targets: '.content__rest',
+          targets: ".content__rest",
           duration: 200,
           delay: anime.random(300, 900),
-          easing: 'easeInOutQuad',
-          opacity: [0, 1]
-        })
+          easing: "easeInOutQuad",
+          opacity: [0, 1],
+        });
       });
 
-      blobs.filter(el => el !== currentBlob).forEach(blob => blob.hide());
+      blobs.filter((el) => el !== currentBlob).forEach((blob) => blob.hide());
     };
 
     const close = () => {
@@ -118,45 +132,52 @@ export default function Scene() {
       isOpen = false;
       const contentInner = DOM.contentInner[current];
       anime({
-        targets: [contentInner.querySelectorAll('.content__title > span'), contentInner.querySelectorAll('.content__subtitle > span'), DOM.ctrlBack],
+        targets: [
+          contentInner.querySelectorAll(".content__title > span"),
+          contentInner.querySelectorAll(".content__subtitle > span"),
+          DOM.ctrlBack,
+        ],
         delay: (t, i) => anime.random(0, 300),
         duration: 200,
-        easing: 'easeInOutQuad',
+        easing: "easeInOutQuad",
         opacity: 0,
         complete: () => {
-          utils.changeBackground()
+          utils.changeBackground();
           contentInner.style.opacity = 0;
-          contentInner.classList.remove('flex');
-          DOM.content.style.pointerEvents = 'none';
-        }
+          contentInner.classList.remove("flex");
+          DOM.content.style.pointerEvents = "none";
+        },
       });
       anime({
-        targets: '.content__rest',
+        targets: ".content__rest",
         duration: 200,
         delay: anime.random(150, 350),
-        easing: 'easeInOutQuad',
-        opacity: [1, 0]
-      })
+        easing: "easeInOutQuad",
+        opacity: [1, 0],
+      });
 
       blobs[current].collapse().then(() => {
         // blobDomElements[current].setAttribute('style', 'opacity: 1')
-        blobDomElements[current].classList.remove('translucent-blob')
+        blobDomElements[current].classList.remove("translucent-blob");
         current = -1;
         anime({
-          targets: DOM.links.map((link) => link.querySelectorAll('span')),
+          targets: DOM.links.map((link) => link.querySelectorAll("span")),
           duration: 200,
           delay: (t, i) => anime.random(0, 600),
-          easing: 'easeInOutQuad',
+          easing: "easeInOutQuad",
           opacity: 1,
-          complete: () => DOM.links.forEach(link => {
-            link.style.pointerEvents = 'auto';
-            link.classList.add('menu__item--showDeco');
-          })
+          complete: () =>
+            DOM.links.forEach((link) => {
+              link.style.pointerEvents = "auto";
+              link.classList.add("menu__item--showDeco");
+            }),
         });
       });
-      blobs.filter(el => el !== blobs[current]).forEach(blob => blob.show());
+      blobs
+        .filter((el) => el !== blobs[current])
+        .forEach((blob) => blob.show());
     };
-  })
+  });
   return (
     <svg
       className="scene"
@@ -167,28 +188,28 @@ export default function Scene() {
     >
       <defs>
         <linearGradient id="gradient-1" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop stopColor="#f19872" />
-          <stop offset="1" stopColor="#e86c9a" />
+          <stop stopColor="#0D324D" />
+          <stop offset="1" stopColor="#7F5A83" />
         </linearGradient>
         <linearGradient id="gradient-2" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop stopColor="#0947db" />
-          <stop offset="1" stopColor="#07d89d" />
+          <stop stopColor="#A71D31" />
+          <stop offset="1" stopColor="#3F0D12" />
         </linearGradient>
         <linearGradient id="gradient-3" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop stopColor="#ee2d29" />
-          <stop offset="1" stopColor="#f8ae2c" />
+          <stop stopColor="#B02E0C" />
+          <stop offset="1" stopColor="#EB4511" />
         </linearGradient>
         <linearGradient id="gradient-4" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop stopColor="#3a3d98" />
-          <stop offset="1" stopColor="#6f22b9" />
+          <stop stopColor="#04619F" />
+          <stop offset="1" stopColor="#000000" />
         </linearGradient>
         <linearGradient id="gradient-5" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop stopColor="#9d316e" />
-          <stop offset="1" stopColor="#de2d3e" />
+          <stop stopColor="#000000" />
+          <stop offset="1" stopColor="#A55C1B" />
         </linearGradient>
         <linearGradient id="gradient-6" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop stopColor="#00ac53" />
-          <stop offset="1" stopColor="#23c3e0" />
+          <stop stopColor="#5F0F40" />
+          <stop offset="1" stopColor="#310E68" />
         </linearGradient>
       </defs>
       <g className="blob-1">
@@ -372,5 +393,5 @@ export default function Scene() {
         />
       </g>
     </svg>
-  )
+  );
 }
